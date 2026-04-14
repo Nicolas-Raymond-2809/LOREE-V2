@@ -48,20 +48,20 @@ const { totalPages } = Astro.props;
             
             <!-- Bloc aligné à droite (Utilisation de flex-end) -->
             <div class="self-end text-right max-w-[260px]">
-              <p class="text-[10px] md:text-[11px] uppercase tracking-[0.2em] text-highlight font-black drop-shadow-md mb-3 leading-relaxed">
+              <p class="text-[9px] md:text-[11px] uppercase tracking-[0.2em] text-highlight font-black drop-shadow-md mb-3 leading-relaxed">
                 Identité de marque & Stratégie de communication
               </p>
-              <p class="text-highlight/90 text-[11px] md:text-[12px] font-poppins font-light italic leading-relaxed border-r-2 border-primary pr-3">
+              <p class="text-highlight/90 text-[10px] md:text-[12px] font-poppins font-light italic leading-relaxed border-r-2 border-primary pr-3">
                 Quand la stratégie rencontre la sensibilité, la marque prend vie
               </p>
             </div>
 
             <!-- Bloc aligné à gauche (Utilisation de flex-start) -->
-            <div class="self-start text-left max-w-[220px]">
-              <p class="text-[10px] md:text-[11px] uppercase tracking-[0.2em] text-highlight font-black drop-shadow-md mb-3 leading-relaxed">
+            <div class="self-start text-left max-w-[180px] md:max-w-[220px]">
+              <p class="text-[9px] md:text-[11px] uppercase tracking-[0.2em] text-highlight font-black drop-shadow-md mb-3 leading-relaxed">
                 Création graphique & site web
               </p>
-              <p class="text-highlight/90 text-[11px] md:text-[12px] font-poppins font-light italic leading-relaxed border-l-2 border-primary pl-3">
+              <p class="text-highlight/90 text-[10px] md:text-[12px] font-poppins font-light italic leading-relaxed border-l-2 border-primary pl-3">
                 Entre intuition, sensibilité et précision : une création qui vous ressemble
               </p>
             </div>
@@ -76,7 +76,7 @@ const { totalPages } = Astro.props;
           <!-- Centre : Bouton -->
           <div class="flex justify-center pb-2">
             <label for="radio-page-1" id="enter-magazine" class="st-ignore border-2 border-accent p-0.5 inline-block hover:-translate-y-1 transition-transform animate-[fade-in_1s_ease-in-out] cursor-pointer" role="button" aria-label="Entrer dans le livre">
-              <div class="border border-accent px-4 py-1.5 text-accent bg-[#f5ebc8] uppercase tracking-[0.25em] text-[10px] font-black shadow-2xl">
+              <div class="border border-accent px-4 py-1.5 text-accent bg-[#f5ebc8] uppercase tracking-[0.25em] text-[8px] md:text-[10px] font-black shadow-2xl">
                 Entrer
               </div>
             </label>
@@ -90,8 +90,8 @@ const { totalPages } = Astro.props;
             </div>
 
             <!-- Fake Barcode -->
-            <div id="fake-barcode" class="px-1 py-0.5 flex flex-col items-end bg-white/80 rounded-sm">
-              <div class="flex h-8 items-end gap-[1px]">
+            <div id="fake-barcode" class="px-1 py-0.5 flex flex-col items-end bg-white/80 rounded-sm scale-75 md:scale-100 origin-bottom-right">
+              <div class="flex h-6 md:h-8 items-end gap-[1px]">
                 <div class="w-[4px] h-full bg-black"></div>
                 <div class="w-[1px] h-full bg-black"></div>
                 <div class="w-[6px] h-full bg-black"></div>
@@ -110,7 +110,7 @@ const { totalPages } = Astro.props;
                 <div class="w-[6px] h-full bg-black"></div>
                 <div class="w-[3px] h-full bg-black"></div>
               </div>
-              <div class="text-[7px] font-mono text-black mt-0.5 tracking-[0.1em] font-bold pr-1">
+              <div class="text-[6px] md:text-[7px] font-mono text-black mt-0.5 tracking-[0.1em] font-bold pr-1">
                 3 141592 653589
               </div>
             </div>

@@ -65,7 +65,11 @@ body {
   position: relative;
   perspective: 1500px;
   /* Centering */
-  margin: 2rem auto;
+  margin: 1.5rem auto;
+}
+
+@media (min-width: 768px) {
+  .book-container {}
 }
 
 /* Base structural styles for pages and inputs */
@@ -79,7 +83,7 @@ body {
 }
 
 /* Fallback Mobile View (Stacking / Scroll Snap) */
-@media (max-width: 850px) {
+@media (max-width: 768px) {
   :root {
     --book-width: 100%;
     --book-height: 100vh;
@@ -93,9 +97,11 @@ body {
 
   .book-container {
     width: 100%;
-    height: 100vh;
+    height: calc(100vh - 4rem);
+    /* Allow space for navigation or padding */
     perspective: none;
     margin: 0;
+    padding-top: 1rem;
 
     /* Scroll snap for mobile */
     display: flex;
@@ -109,13 +115,18 @@ body {
   /* In mobile, pages are side-by-side sliding horizontally */
   .page-container {
     position: relative !important;
-    flex: 0 0 100%;
-    height: 100vh !important;
-    scroll-snap-align: start;
+    left: 0 !important;
+    flex: 0 0 calc(100% - 2rem);
+    margin: 0 1rem;
+    height: calc(100vh - 6rem) !important;
+    scroll-snap-align: center;
     transform: none !important;
     transition: none !important;
     display: flex !important;
     flex-direction: column !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-radius: 1rem;
+    overflow: hidden;
   }
 
   .page-container .side {
@@ -124,7 +135,9 @@ body {
     transform: none !important;
     width: 100% !important;
     height: auto !important;
-    min-height: 50vh;
+    min-height: 100%;
+    border: none !important;
+    box-shadow: none !important;
   }
 
   .page-checkbox:checked+.page-container {
@@ -132,8 +145,9 @@ body {
     z-index: auto !important;
   }
 
-  /* Hide labels on mobile if we rely on native scrolling */
+  /* Interactive labels should be visible but optimized for mobile */
   .turn-btn {
-    display: none !important;
+    padding: 0.8rem 1.2rem !important;
+    font-size: 0.9rem !important;
   }
 }

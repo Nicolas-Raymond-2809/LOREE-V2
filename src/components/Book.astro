@@ -54,7 +54,7 @@ for (let state = 0; state <= totalPages; state++) {
   </div>
 
   <!-- CSS dynamique injecté statiquement au build -->
-  <style set:html={dynamicCSS}></style>
+  <style set:html={`@media (min-width: 769px) { ${dynamicCSS} }`}></style>
 
   <!-- Modal Sommaire (Caché par défaut, affiché quand sommer-toggle est coché) -->
   <div class="fixed inset-0 z-50 bg-black/60 backdrop-blur-md hidden peer-checked/sommaire:flex flex-col items-center justify-center p-4">
