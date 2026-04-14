@@ -31,7 +31,7 @@ const backwardRadioId = `radio-page-${pageNumber - 1}`;
     </div>
     
     <!-- Navigation Inférieure (Bouton Suivant uniquement à droite) -->
-    <div class="absolute bottom-6 right-8 z-20 pointer-events-none">
+    <div class="nav-front absolute bottom-6 right-8 z-20 pointer-events-none">
       {pageNumber < totalPages && (
         <label for={forwardRadioId} class="turn-btn forward" tabindex="0" role="button" aria-label="Page suivante">
           <span class="btn-text">Suivant &rarr;</span>
@@ -56,16 +56,10 @@ const backwardRadioId = `radio-page-${pageNumber - 1}`;
     </div>
     
     <!-- Navigation Inférieure (Bouton Précédent uniquement à gauche du livre = bord droit local) -->
-    <div class="absolute bottom-6 right-8 z-20 pointer-events-none">
-      {pageNumber > 1 ? (
-        <label for={backwardRadioId} class="turn-btn backward" tabindex="0" role="button" aria-label="Page précédente">
-          <span class="btn-text">&larr; Précédent</span>
-        </label>
-      ) : (
-        <label for={backwardRadioId} class="turn-btn backward" tabindex="0" role="button" aria-label="Fermer le livre">
-          <span class="btn-text">&larr; Fermer</span>
-        </label>
-      )}
+    <div class="nav-back absolute bottom-6 right-8 z-20 pointer-events-none">
+      <label for={backwardRadioId} class="turn-btn backward" tabindex="0" role="button" aria-label="Page précédente">
+        <span class="btn-text">&larr; Précédent</span>
+      </label>
     </div>
   </div>
 </div>
@@ -137,7 +131,7 @@ const backwardRadioId = `radio-page-${pageNumber - 1}`;
   .side.back a,
   .side.back button,
   .side.back label {
-    pointer-events: none !important;
+    pointer-events: none;
   }
 
   .turn-btn:hover {

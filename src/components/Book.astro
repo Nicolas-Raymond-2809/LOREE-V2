@@ -16,9 +16,19 @@ let dynamicCSS = '';
 for (let state = 0; state <= totalPages; state++) {
   // If state is K, pages 1 to K must be flipped.
   for (let p = 1; p <= state; p++) {
-    dynamicCSS += `input#radio-page-${state}:checked ~ .book-container #page-container-${p} { transform: rotateY(-180deg) !important; z-index: ${500 + p} !important; }\n`;
-    dynamicCSS += `input#radio-page-${state}:checked ~ .book-container #page-container-${p} .side.front { pointer-events: none !important; visibility: hidden !important; }\n`;
-    dynamicCSS += `input#radio-page-${state}:checked ~ .book-container #page-container-${p} .side.back { pointer-events: auto !important; visibility: visible !important; }\n`;
+    dynamicCSS += `input#radio-page-${state}:checked ~ .book-container #page-container-${p} { transform: rotateY(-180deg) !important; z-index: var(--flippedZ) !important; }\n`;
+    
+    // Disable interactions on the hidden front side (side and its children)
+    dynamicCSS += `input#radio-page-${state}:checked ~ .book-container #page-container-${p} .side.front { pointer-events: none !important; }\n`;
+    dynamicCSS += `input#radio-page-${state}:checked ~ .book-container #page-container-${p} .side.front a,
+                   input#radio-page-${state}:checked ~ .book-container #page-container-${p} .side.front button,
+                   input#radio-page-${state}:checked ~ .book-container #page-container-${p} .side.front label { pointer-events: none !important; }\n`;
+    
+    // Enable interactions on the now-visible back side (side and its specific interactive children)
+    dynamicCSS += `input#radio-page-${state}:checked ~ .book-container #page-container-${p} .side.back { pointer-events: auto !important; }\n`;
+    dynamicCSS += `input#radio-page-${state}:checked ~ .book-container #page-container-${p} .side.back a,
+                   input#radio-page-${state}:checked ~ .book-container #page-container-${p} .side.back button,
+                   input#radio-page-${state}:checked ~ .book-container #page-container-${p} .side.back label { pointer-events: auto !important; }\n`;
   }
 }
 ---
